@@ -2,16 +2,9 @@
 
 namespace App\Models;
 
-class Portofolio
-{
-    public $id;
-    public $title;
-    public $description;
+use Illuminate\Database\Eloquent\Model;
 
-    public function __construct($id, $title, $description)
-    {
-        $this->id = $id;
-        $this->title = $title;
-        $this->description = $description;
-    }
+class Portofolio extends Model
+{
+    
 }
