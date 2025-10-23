@@ -14,7 +14,7 @@ Route::get('/portodummy/update/{id}', [FrontController::class, 'dummyUpdate']);
 
 Route::get('portodummy/delete/{id}', [FrontController::class, "dummyDelete"]);
 
-// Route::get('/portofolio', function (PortofolioFactory $factory) {
-//     $portofolios = $factory->create();
-//     return view('app.portofolio', ['portofolios' => $portofolios]);
-// });
+Route::get('/portofolio', [FrontController::class, 'portofolio']);
+
+
+Route::get('/portofolioDetail/{id}', [FrontController::class, 'portofolioDetail']);

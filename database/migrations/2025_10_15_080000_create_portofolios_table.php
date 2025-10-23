@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('portofolios', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->string('title');
+            $table->text('description');
+            $table->string('image');
             $table->timestamps();
-            $table->string("title");
-            $table->text("description");
-            $table->string("image");
-            $table->string("link");
-        });
+        });    
     }
 
     /**
@@ -26,6 +26,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('portofolios', function(Blueprint $table){
+            $table->dropForeign(['category_id']);
+        });
         Schema::dropIfExists('portofolios');
     }
 };

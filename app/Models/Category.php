@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Portofolio extends Model
+class Category extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'category_id',
-        'title',
-        'description',
-        'image'
+        'name',
+        'slug'
     ];
 
-    public function category()
+    public function portofolios()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Portofolio::class);
     }
 }
