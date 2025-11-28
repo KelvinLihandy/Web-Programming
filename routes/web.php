@@ -4,6 +4,7 @@ use Database\Factories\PortofolioFactory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\SessionController;
 
 Route::get('/', [FrontController::class, 'index']);
 
@@ -24,3 +25,11 @@ Route::get('/portofolios', [PortofolioController::class, 'index'])->name('portof
 Route::get('/portofolios/create', [PortofolioController::class, 'create'])->name('portofolio.create');
 
 Route::post('portofolios', [PortofolioController::class, 'store'])->name('portofolio.store');
+
+Route::post('/session/set', [SessionController::class, 'storeSession'])->name('session.set');
+
+Route::get('/session/set', [SessionController::class, 'index'])->name('session.index');
+
+Route::get('/session/get', [SessionController::class, 'getSession'])->name('session.get');
+
+Route::get('/session/delete', [SessionController::class, 'deleteSession'])->name('session.delete');
